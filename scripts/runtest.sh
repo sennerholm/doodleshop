@@ -3,6 +3,7 @@
 export INSTANCE=${DOODLE_ENV}
 export PORT_PREFIX=$1
 export PORT=8080
+export M_PORT=8080
 
 set -e
 echo "Running smoketests"
