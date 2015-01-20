@@ -7,11 +7,11 @@ PORT=8080
 M_PORT=9200
 EPORT=8080
 set -ex
-if [ ${LEG} -eq 'green' ]; then
+if [ ${LEG} = 'green' ]; then
   EPORT=8081
 fi
 
-if [ ${LEG} -eq 'blue' ]; then
+if [ ${LEG} = 'blue' ]; then
   EPORT=8082
 fi
 
