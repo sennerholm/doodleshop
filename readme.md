@@ -8,7 +8,7 @@ Features:
 * Environment detection using environment variable <code>se.caglabs.doodleshop.environment</code>
 * Environment specific configuration and log configuration using Spring profiles (application.yaml)
 * Centralized logging with Logstash and rolling file logging
-* Integration tests
+* Unit tests and integration tests
 * Flyway DB setup and migration
 * Database H2, embedded if not specified external in application.yaml
  
@@ -42,5 +42,3 @@ Read created doodles:
 
 Have fun,
 Daniel Marell
-
-Trigger build 2
