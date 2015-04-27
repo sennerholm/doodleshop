@@ -21,9 +21,9 @@ fi
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 VERSION=`grep AppVersion ${SCRIPT_DIR}/../BuildInfo.properties | awk -F'=' '{print $2}'`
 # Kill old instans
-sudo docker rm -f doodleshop-${INSTANCE} || /bin/true
+docker rm -f doodleshop-${INSTANCE} || /bin/true
 # Start a new one
-sudo docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name doodleshop-${INSTANCE} -p ${PORT_PREFIX}${EPORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT} doodleshop:$VERSION
+docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name doodleshop-${INSTANCE} -p ${PORT_PREFIX}${EPORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT} doodleshop:$VERSION
 # Sleep some time before checking that it's working
 timeout 3m bash runsmoketestuntilkilled.sh
 
