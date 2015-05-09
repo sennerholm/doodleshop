@@ -1,4 +1,4 @@
-FROM dockerfile/java
+FROM java:8-jre
 MAINTAINER mikael@sennerholm.net
 COPY scripts/startdoodles.sh /startdoodles.sh
 COPY target/doodleshop.war /doodleshop.war
