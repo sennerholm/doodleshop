@@ -17,8 +17,9 @@ echo running  docker rm -f doodleshop-${INSTANCE}
 docker rm -f doodleshop-${INSTANCE} || /bin/true
 
 # Start a new one
-echo running  docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name doodleshop-${INSTANCE} -p ${PORT_PREFIX}${PORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT}  doodleshop:$VERSION
-docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --name doodleshop-${INSTANCE} -p ${PORT_PREFIX}${PORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT} doodleshop:$VERSION
+# Is depending on directory name running docker-compose up in!! Ugly!!
+echo running  docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --link dockerapplicationserver_elk_1:elk --name doodleshop-${INSTANCE} -p ${PORT_PREFIX}${PORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT}  doodleshop:$VERSION
+docker run -d -e "DOODLE_ENV=${DOODLE_ENV}" --link dockerapplicationserver_elk_1:elk --name doodleshop-${INSTANCE} -p ${PORT_PREFIX}${PORT}:${PORT} -p ${PORT_PREFIX}${M_PORT}:${M_PORT} doodleshop:$VERSION
 # Sleep some time before checking that it's working
 timeout 3m bash runsmoketestuntilkilled.sh
 
