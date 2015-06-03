@@ -16,7 +16,7 @@
     </appender>
 
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <remoteHost>caglabs.se</remoteHost>
+        <remoteHost>elk</remoteHost>
         <port>42000</port>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
         <customFields>{"appname":"doodleshop-prod"}</customFields>
