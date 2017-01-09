@@ -12,8 +12,9 @@ WORKDIR $BUILD_HOME
 ADD pom.xml $BUILD_HOME
 
 # get all the downloads out of the way
-RUN ["mvn","verify","clean","--fail-never","-B"]
-RUN mvn versions:set -DnewVersion=dummy --fail-never -B
+# Doesn't seems to work on doodleshop. @dmarell could you look into it?
+#RUN ["mvn","verify","clean","--fail-never","-B"]
+#RUN mvn versions:set -DnewVersion=dummy --fail-never -B
 
 # add source
 ADD . $BUILD_HOME
@@ -22,4 +23,4 @@ ARG BUILD_VERSION
 # Do the actual build
 RUN mvn versions:set -DnewVersion=${BUILD_VERSION} -B
 
-RUN ["mvn","clean","package"]
+RUN ["mvn","clean","package","-B"]
