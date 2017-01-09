@@ -10,6 +10,7 @@ set -e
 docker build --build-arg BUILD_VERSION=${VERSION} -t doodleshop-img -f Dockerfile.build .
 docker create --name doodleshop-cont doodleshop-img
 docker cp doodleshop-cont:/build/target/doodleshop.war ./doodleshop.war
+docker cp doodleshop-cont:/build/target/classes/BuildInfo.properties ./BuildInfo.properties
 docker rm doodleshop-cont
 docker build --tag=${DOCKER_USER}/doodleshop:${VERSION} .
 docker login -u ${DOCKER_USER} -p $DOCKER_PASSWORD
