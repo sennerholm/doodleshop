@@ -12,14 +12,14 @@ WORKDIR $BUILD_HOME
 ADD pom.xml $BUILD_HOME
 
 # get all the downloads out of the way
-RUN ["mvn","package","version:set","clean","--fail-never","-B"]
+RUN ["mvn","verify","clean","--fail-never","-B"]
+RUN mvn versions:set -DnewVersion=dummy --fail-never -B
 
 # add source
 ADD . $BUILD_HOME
-
-ENV VERSION=notknown
+ARG BUILD_VERSION
 
 # Do the actual build
-RUN ["mvn","versions:set", "-DnewVersion=$VERSION","-B"]
+RUN mvn versions:set -DnewVersion=${BUILD_VERSION} -B
 
 RUN ["mvn","clean","package"]
