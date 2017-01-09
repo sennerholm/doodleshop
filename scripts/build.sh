@@ -1,16 +1,16 @@
 #!/bin/bash
 VERSION=${GO_PIPELINE_LABEL}
+# Based on: http://blog.terranillius.com/post/docker_builder_pattern/
 #Assume 
 #DOCKER_USER
 #DOCKER_PASSWORD
+# Namn från GO_PIPELINE_NAME?
 set -e
-docker pull maven:3-jdk-8
-docker run --rm --name build-doodleshop -v "$PWD":/usr/src/mymaven \
-  -w /usr/src/mymaven maven:3-jdk-8 mvn versions:set \
-  -DnewVersion=${VERSION} -B
-docker run --rm --name build-doodleshop -v "$PWD":/usr/src/mymaven \
-  -w /usr/src/mymaven maven:3-jdk-8 mvn clean package
 
+docker build -t doodleshop-img -f Dockerfile.build
+docker create --name doodleshop-cont doodleshop-img
+docker cp doodleshop-cont:/build/target/mgs.war ./target/doodleshop.war
+docker rm doodleshop-cont
 docker build --tag=${DOCKER_USER}/doodleshop:${VERSION} .
 docker login -u ${DOCKER_USER} -p $DOCKER_PASSWORD
 docker push ${DOCKER_USER}/doodleshop:${VERSION}

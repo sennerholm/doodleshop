@@ -1,0 +1,25 @@
+FROM maven:3-jdk-8
+
+# Inspired by: 
+# http://blog.terranillius.com/post/docker_builder_pattern/
+ENV BUILD_HOME=/build/
+
+RUN mkdir -p $BUILD_HOME
+WORKDIR $BUILD_HOME
+
+# speed up maven build, read https://keyholesoftware.com/2015/01/05/caching-for-maven-docker-builds/
+# selectively add the POM file
+ADD pom.xml $BUILD_HOME
+
+# get all the downloads out of the way
+RUN ["mvn","package","version:set","clean","--fail-never","-B"]
+
+# add source
+ADD . $BUILD_HOME
+
+ENV VERSION=notknown
+
+# Do the actual build
+RUN ["mvn","versions:set", "-DnewVersion=$VERSION","-B"]
+
+RUN ["mvn","clean","package"]
