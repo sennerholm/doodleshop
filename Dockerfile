@@ -8,4 +8,4 @@ ENV DOODLE_ENV local
 EXPOSE 8080
 # Shutdown port
 EXPOSE 9200
-CMD bash /startdoodles.sh
+CMD sh /startdoodles.sh
