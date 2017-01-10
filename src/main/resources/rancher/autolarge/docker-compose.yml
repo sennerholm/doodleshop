@@ -1,0 +1,16 @@
+version: '2'
+services:
+  doodlelb:
+    ports:
+    - 8080
+    image: rancher/lb-service-haproxy
+  doodleshop:
+     image: ${docker_user}/doodleshop:${pom.version}
+    stdin_open: true
+    tty: true
+    environment:
+    - DOODLE_ENV=autolarge
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+
