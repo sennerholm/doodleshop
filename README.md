@@ -7,7 +7,6 @@ Features:
 * Automatic versioning in MANIFEST.MF and in resource /appversion read from build pipeline environment variable
 * Environment detection using environment variable <code>se.caglabs.doodleshop.environment</code>
 * Environment specific configuration and log configuration using Spring profiles (application.yaml)
-* Centralized logging with Logstash and rolling file logging
 * Unit tests and integration tests
 * Flyway DB setup and migration
 * Database H2, embedded if not specified external in application.yaml
@@ -26,9 +25,9 @@ Features:
 
 For specific environment, specify:
 
-<code>$ java -Dse.caglabs.doodleshop.environment=man -jar doodleshop.war</code>
+<code>$ java -Dse.caglabs.doodleshop.environment=stage -jar doodleshop.war</code>
 
-where <code>se.caglabs.doodleshop.environment</code> is (local | autosmall | autolarge | man | prod)
+where <code>se.caglabs.doodleshop.environment</code> is (local | autosmall | autolarge | stage | prod)
 
 ### Test
 

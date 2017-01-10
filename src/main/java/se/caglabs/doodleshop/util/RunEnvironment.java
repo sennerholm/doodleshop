@@ -12,14 +12,14 @@ import org.springframework.core.env.Environment;
  * local: Local development (default if missing)
  * autosmall: Small/fast automatic tests
  * autolarge: Large/slow automatic tests
- * man: Manual test environment
+ * stage: Staging environment
  * prod: Production environment
  */
 public enum RunEnvironment {
     LOCAL("local"),
     AUTOSMALL("autosmall"),
     AUTOLARGE("autolarge"),
-    MAN("man"),
+    STAGE("stage"),
     PROD("prod");
 
     private String name;
