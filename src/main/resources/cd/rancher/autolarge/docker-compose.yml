@@ -5,7 +5,7 @@ services:
     - 8080
     image: rancher/lb-service-haproxy
   doodleshop:
-    image: ${docker-user}/doodleshop:${pom.version}
+    image: @docker-user@/doodleshop:@project.version@
     stdin_open: true
     tty: true
     environment:

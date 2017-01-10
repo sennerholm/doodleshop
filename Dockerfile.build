@@ -13,7 +13,7 @@ ADD pom.xml $BUILD_HOME
 
 # get all the downloads out of the way
 # Doesn't seems to work on doodleshop. @dmarell could you look into it?
-#RUN ["mvn","verify","clean","--fail-never","-B"]
+#RUN ["mvn verify","clean","--fail-never","-B"]
 #RUN mvn versions:set -DnewVersion=dummy --fail-never -B
 
 # add source
@@ -24,4 +24,4 @@ ARG DOCKER_USER
 # Do the actual build
 RUN mvn versions:set -DnewVersion=${BUILD_VERSION} -B
 
-RUN ["mvn","clean","package","-B","-Ddocker-user=${DOCKER_USER}"]
+RUN mvn clean package -B -Ddocker-user=${DOCKER_USER}

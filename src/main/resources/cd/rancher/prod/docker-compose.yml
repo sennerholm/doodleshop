@@ -5,11 +5,11 @@ services:
     - 8080
     image: rancher/lb-service-haproxy
   doodleshop:
-    image: ${docker-user}/doodleshop:${pom.version}
+    image: @docker-user@/doodleshop:@project.version@
     stdin_open: true
     tty: true
     environment:
-    - DOODLE_ENV=uat
+    - DOODLE_ENV=prod
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}

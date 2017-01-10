@@ -11,7 +11,7 @@
 
     <groupId>se.cag</groupId>
     <artifactId>doodleshop</artifactId>
-    <version>1-SNAPSHOT</version>
+    <version>1.0.17</version>
     <packaging>war</packaging>
 
     <properties>
@@ -90,6 +90,7 @@
                 <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>BuildInfo.properties</exclude>
+                    <exclude>rancher</exclude>
                 </excludes>
             </resource>
         </resources>
@@ -113,6 +114,29 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-test-resources</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <outputDirectory>${project.basedir}/target/generated-cd</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/cd</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
