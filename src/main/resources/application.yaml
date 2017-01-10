@@ -42,7 +42,7 @@ se.caglabs.doodleshop:
 ---
 
 spring:
-  profiles: man
+  profiles: stage
 se.caglabs.doodleshop:
   backgroundcolor: magenta
 
