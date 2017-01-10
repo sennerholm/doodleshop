@@ -19,8 +19,9 @@ ADD pom.xml $BUILD_HOME
 # add source
 ADD . $BUILD_HOME
 ARG BUILD_VERSION
+ARG DOCKER_USER
 
 # Do the actual build
 RUN mvn versions:set -DnewVersion=${BUILD_VERSION} -B
 
-RUN ["mvn","clean","package","-B"]
+RUN ["mvn","clean","package","-B","-Ddocker-user=${DOCKER_USER}"]
