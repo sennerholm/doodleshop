@@ -1,31 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- Enable JMX Management -->
-    <jmxConfigurator/>
-
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %.-1level|%-40.40logger{0}|%msg%n</pattern>
         </encoder>
-    </appender>
-
-    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>doodleshop.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>doodleshop-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>3</maxHistory>
-        </rollingPolicy>
-
-        <encoder>
-            <pattern>LOCAL %d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <remoteHost>elk</remoteHost>
-        <port>42000</port>
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
-        <customFields>{"appname":"doodleshop-local"}</customFields>
     </appender>
 
     <logger name="se.caglabs.doodleshop" level="info"/>
@@ -34,7 +12,5 @@
 
     <root level="warn">
         <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
-        <appender-ref ref="logstash" />
     </root>
 </configuration>
