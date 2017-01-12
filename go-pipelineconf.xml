@@ -12,7 +12,7 @@
           <value>cagkurs</value>
         </variable>
         <variable name="DOCKER_PASSWORD">
-          <value>KursPassword</value>
+          <value>BYTTILLEGET</value>
         </variable>
       </environmentvariables>
       <materials>
