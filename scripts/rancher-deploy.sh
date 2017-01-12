@@ -13,6 +13,7 @@ then
 fi
 if [ ! -f rancher ]; then
 	echo "Assumes a rancher binary in $PWD"
+	exit 1
 fi
 chmod a+x rancher
 export RANCHER_ENVIRONMENT=$1
