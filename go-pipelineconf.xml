@@ -11,7 +11,7 @@
         <variable name="DOCKER_USER">
           <value>sennerholm</value>
         </variable>
-        <variable name="DOCKER_PASSWORD" secure="true">
+        <variable name="DOCKER_PASSWORD">
           <Value>TO_BE_CHANGE_TO_SECURE</Value>
         </variable>
       </environmentvariables>
