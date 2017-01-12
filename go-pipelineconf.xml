@@ -12,7 +12,7 @@
           <value>sennerholm</value>
         </variable>
         <variable name="DOCKER_PASSWORD" secure="true">
-          <encryptedValue>vX4fDGJojooSM1ADqHWMSg==</encryptedValue>
+          <Value>TO_BE_CHANGE_TO_SECURE</Value>
         </variable>
       </environmentvariables>
       <materials>
