@@ -11,10 +11,14 @@ then
     echo "Usage: $0 <rancherenv> <directory>"
     exit 1
 fi
+if [ ! -f rancher ]; then
+	echo "Assumes a rancher binary in $PWD"
+fi
+chmod a+x rancher
 export RANCHER_ENVIRONMENT=$1
 cd $2
 # Upgrade
-rancher up -u -d
+$OLDPWD/rancher up -u -d
 # Confirm (remove old containers)
-rancher up -c -d
+$OLDPWD/rancher up -c -d
 cd -
