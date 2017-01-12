@@ -12,7 +12,7 @@ then
     exit 1
 fi
 export RANCHER_ENVIRONMENT=$1
-cd directory
+cd $2
 # Upgrade
 rancher up -u -d
 # Confirm (remove old containers)
