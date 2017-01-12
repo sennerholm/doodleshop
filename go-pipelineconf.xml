@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="87">
-  <server artifactsdir="artifacts" agentAutoRegisterKey="123456789abcdef" commandRepositoryLocation="default" serverId="9a14b4cf-925f-4066-aff7-da60ced5fd39" />
+  <server artifactsdir="artifacts" agentAutoRegisterKey="123456789abcdef" commandRepositoryLocation="default"/>
   <pipelines group="Doodleshop">
     <pipeline name="DoodleshopBAT" labeltemplate="1.0.${COUNT}" isLocked="false">
       <params>
@@ -11,8 +11,8 @@
         <variable name="DOCKER_USER">
           <value>sennerholm</value>
         </variable>
-        <variable name="DOCKER_PASSWORD" secure="true">
-          <encryptedValue>vX4fDGJojooSM1ADqHWMSg==</encryptedValue>
+        <variable name="DOCKER_PASSWORD">
+          <value>TO_BE_CHANGE_TO_SECURE</value>
         </variable>
       </environmentvariables>
       <materials>
