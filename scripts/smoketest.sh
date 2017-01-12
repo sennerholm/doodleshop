@@ -4,7 +4,7 @@ INSTANCE=$DOODLE_ENV
 PORT=8080
 
 set -e
-if [ -n "${RANCHER_URL}"]; then
+if [ -n "${RANCHER_URL}" ]; then
 	echo "Smoke on rancher"
 	DOODLE_IP=doodlelb.${GO_PIPELINE_NAME}.rancher.internal
 else
